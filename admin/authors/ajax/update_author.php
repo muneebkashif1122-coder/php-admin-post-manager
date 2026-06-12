@@ -51,5 +51,3 @@ if (isset($_POST['action_type']) && $_POST['action_type'] === 'update_author_rec
 echo json_encode(['status' => 'error', 'message' => 'Invalid action type parameter check.']);
 exit;
 ?>
-
-

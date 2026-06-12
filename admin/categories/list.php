@@ -131,7 +131,8 @@
                         },
                         error: function() {
                             alert(
-                                "Critical Failure: Could not reach the delete_category.php endpoint.");
+                                "Critical Failure: Could not reach the delete_category.php endpoint."
+                                );
                         }
                     });
                 }

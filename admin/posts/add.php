@@ -3,6 +3,7 @@ include_once "../../database/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Write a Post</title>
     <meta charset="utf-8">
@@ -10,6 +11,7 @@ include_once "../../database/db.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <div class="d-flex">
         <?php include("../../layout/sidebar.php"); ?>
@@ -19,7 +21,7 @@ include_once "../../database/db.php";
                     <h2>Write a Post</h2>
                     <p>Fill out the fields below to publish a post.</p>
                 </div>
-                
+
                 <!-- FIXED: Container added so your green/red alert text can physically render -->
                 <div id="response-msg" class="mt-3"></div>
 
@@ -27,7 +29,7 @@ include_once "../../database/db.php";
                 <form id="post-form" enctype="multipart/form-data">
                     <!-- FIXED: Value changed to 'create_post' to match your handler logic -->
                     <input type="hidden" name="action_type" value="create_post">
-                    
+
                     <div class="mb-3">
                         <label>Title</label>
                         <input type="text" name="title" class="form-control" required>
@@ -80,38 +82,41 @@ include_once "../../database/db.php";
         </div>
     </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-    $('#post-form').submit(function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#post-form').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
 
-        $.ajax({
-            url: 'ajax/insert.php',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function (response) {
-                console.log(response);
-                if(response.status === 'success') {
-                    $('#response-msg').html('<div class="alert alert-success">' + response.message + '</div>');
-                    $('#post-form')[0].reset();
-                } else {
-                    $('#response-msg').html('<div class="alert alert-danger">' + response.message + '</div>');
+            $.ajax({
+                url: 'ajax/insert.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(response) {
+                    console.log(response);
+                    if (response.status === 'success') {
+                        $('#response-msg').html('<div class="alert alert-success">' +
+                            response.message + '</div>');
+                        $('#post-form')[0].reset();
+                    } else {
+                        $('#response-msg').html('<div class="alert alert-danger">' +
+                            response.message + '</div>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                    $('#response-msg').html(
+                        '<div class="alert alert-danger">Server connection error.</div>'
+                    );
                 }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr.responseText);
-                $('#response-msg').html('<div class="alert alert-danger">Server connection error.</div>');
-            }
+            });
         });
     });
-});
-</script>
+    </script>
 </body>
+
 </html>
-
-
