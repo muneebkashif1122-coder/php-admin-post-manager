@@ -38,4 +38,3 @@ if (isset($_POST['action_type']) && $_POST['action_type'] == 'create_post') {
     exit;
 }
 ?>
-

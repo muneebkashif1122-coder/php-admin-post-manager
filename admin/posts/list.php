@@ -90,7 +90,7 @@
                             }
 
 
-                           
+
                             // var imageSource = '../../' + (item.image ||
                             //     'assets/images/default.jpg');
 

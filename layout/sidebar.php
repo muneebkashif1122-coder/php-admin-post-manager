@@ -1,7 +1,10 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary shadow" style="width: 280px; height: 100vh; position: sticky; top: 0;">
-    <a href="/project-3/admin/index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary shadow"
+    style="width: 280px; height: 100vh; position: sticky; top: 0;">
+    <a href="/project-3/admin/index.php"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
         <!-- Displays your custom logo instead of text -->
-        <img src="/project-3/admin/uploads/assets/logo.png" alt="Logo" style="max-width: 100%; max-height: 50px; object-fit: contain;">
+        <img src="/project-3/admin/uploads/assets/logo.png" alt="Logo"
+            style="max-width: 100%; max-height: 50px; object-fit: contain;">
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">

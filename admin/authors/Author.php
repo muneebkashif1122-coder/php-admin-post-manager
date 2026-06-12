@@ -27,7 +27,8 @@ class Author {
 
             if(move_uploaded_file($tmp_name, $full_destination)) {
                 $this->image_path = $target_dir . $filename; 
-            } else {
+            }
+            else {
                 $this->image_path = ""; 
             }
         }
